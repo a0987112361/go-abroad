@@ -1,0 +1,13 @@
+services:
+  go-abroad:
+    build: .
+    image: go-abroad:latest
+    container_name: go-abroad
+    restart: unless-stopped
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
+    name: web

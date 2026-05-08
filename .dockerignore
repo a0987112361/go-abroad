@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.gitignore
+.env*
+.DS_Store
+README.md
+CLAUDE.md
+AGENTS.md
+.vscode
+.idea
+*.log
+npm-debug.log*
+.eslintcache
