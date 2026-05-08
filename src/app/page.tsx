@@ -63,6 +63,36 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-6">出國工具</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <ToolCard
+            href="/tools/esim"
+            emoji="📡"
+            title="eSIM 比較"
+            desc="Airalo / Holafly / Saily 等 8 家熱門 eSIM 廠商方案、流量、價格一次比。"
+          />
+          <ToolCard
+            href="/tools/insurance"
+            emoji="🛡️"
+            title="旅遊保險比較"
+            desc="7 家旅平險估價、保障項目對照，輸入天數年齡立刻試算。"
+          />
+          <ToolCard
+            href="/tools/currency"
+            emoji="💱"
+            title="台幣換匯計算機"
+            desc="即時匯率對 16 國貨幣，每小時更新，反向換算物價。"
+          />
+          <ToolCard
+            href="/tools/tax-refund"
+            emoji="💰"
+            title="退稅試算機"
+            desc="日韓歐主要國家退稅率、門檻、扣手續費後實拿多少。"
+          />
+          <ToolCard
+            href="/tools/timezone"
+            emoji="🕒"
+            title="世界時差查詢"
+            desc="35+ 主要城市時差自動換算，含日光節約時間處理。"
+          />
+          <ToolCard
             href="/tools/luggage"
             emoji="🧳"
             title="行李清單產生器"
@@ -73,12 +103,6 @@ export default function Home() {
             emoji="💸"
             title="旅費分攤計算機"
             desc="一群人出去玩誰墊錢，自動算每人收支與最少轉帳次數。"
-          />
-          <ToolCard
-            href="/tools/currency"
-            emoji="💱"
-            title="台幣換匯計算機"
-            desc="即時匯率對 16 國貨幣，每小時更新，反向換算物價。"
           />
         </div>
       </section>

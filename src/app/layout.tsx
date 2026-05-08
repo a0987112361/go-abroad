@@ -61,19 +61,18 @@ export default function RootLayout({
             <Link href="/" className="text-xl font-bold tracking-tight">
               ✈️ Go Abroad
             </Link>
-            <nav className="flex gap-4 sm:gap-6 text-sm">
-              <Link href="/visa" className="hover:text-blue-600">
-                簽證
-              </Link>
-              <Link href="/tools/luggage" className="hover:text-blue-600">
-                行李
-              </Link>
-              <Link href="/tools/split-bill" className="hover:text-blue-600">
-                分帳
-              </Link>
-              <Link href="/tools/currency" className="hover:text-blue-600">
-                換匯
-              </Link>
+            <nav className="hidden sm:flex gap-4 text-sm">
+              <Link href="/visa" className="hover:text-blue-600">簽證</Link>
+              <Link href="/tools/esim" className="hover:text-blue-600">eSIM</Link>
+              <Link href="/tools/insurance" className="hover:text-blue-600">保險</Link>
+              <Link href="/tools/currency" className="hover:text-blue-600">換匯</Link>
+              <Link href="/tools/tax-refund" className="hover:text-blue-600">退稅</Link>
+              <Link href="/tools/timezone" className="hover:text-blue-600">時差</Link>
+              <Link href="/tools/luggage" className="hover:text-blue-600">行李</Link>
+              <Link href="/tools/split-bill" className="hover:text-blue-600">分帳</Link>
+            </nav>
+            <nav className="sm:hidden">
+              <Link href="/visa" className="text-sm hover:text-blue-600">查詢工具</Link>
             </nav>
           </div>
         </header>
