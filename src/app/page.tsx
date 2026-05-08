@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { getAllVisaCountries } from "@/lib/visa";
 
+const POPULAR_SLUGS = ["japan", "korea", "thailand", "usa", "vietnam", "singapore"];
+
 export default function Home() {
-  const countries = getAllVisaCountries();
+  const allCountries = getAllVisaCountries();
+  const popular = POPULAR_SLUGS
+    .map((s) => allCountries.find((c) => c.slug === s))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
@@ -11,23 +16,20 @@ export default function Home() {
           出國工具，一站搞定
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-          台灣護照出國前必查：簽證規定、停留天數、入境須備文件，最新資訊一次看完。
+          台灣護照出國前必查：簽證規定、停留天數、入境須備文件、行李清單、旅費分攤、即時匯率。
         </p>
       </section>
 
       <section className="mt-8">
         <div className="flex items-end justify-between mb-6">
           <h2 className="text-2xl font-bold">熱門國家簽證</h2>
-          <Link
-            href="/visa"
-            className="text-sm text-blue-600 hover:underline"
-          >
-            查看全部 →
+          <Link href="/visa" className="text-sm text-blue-600 hover:underline">
+            全部 {allCountries.length} 國 →
           </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {countries.map((c) => (
+          {popular.map((c) => (
             <Link
               key={c.slug}
               href={`/visa/${c.slug}`}
@@ -59,24 +61,50 @@ export default function Home() {
 
       <section className="mt-16">
         <h2 className="text-2xl font-bold mb-6">出國工具</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Link
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <ToolCard
             href="/tools/luggage"
-            className="block p-6 border border-slate-200 rounded-lg hover:border-blue-500 hover:shadow-sm transition"
-          >
-            <div className="text-3xl mb-2">🧳</div>
-            <h3 className="text-lg font-semibold mb-1">行李清單產生器</h3>
-            <p className="text-sm text-slate-600">
-              依目的地、天數、季節、活動自動生成清單，可勾選、列印、存 PDF。
-            </p>
-          </Link>
-          <div className="block p-6 border border-dashed border-slate-300 rounded-lg text-slate-400">
-            <div className="text-3xl mb-2">💱</div>
-            <h3 className="text-lg font-semibold mb-1">即將推出</h3>
-            <p className="text-sm">旅費分攤、換匯比價、多人時間喬約</p>
-          </div>
+            emoji="🧳"
+            title="行李清單產生器"
+            desc="依目的地、天數、季節、活動自動生成清單，可勾選、列印、存 PDF。"
+          />
+          <ToolCard
+            href="/tools/split-bill"
+            emoji="💸"
+            title="旅費分攤計算機"
+            desc="一群人出去玩誰墊錢，自動算每人收支與最少轉帳次數。"
+          />
+          <ToolCard
+            href="/tools/currency"
+            emoji="💱"
+            title="台幣換匯計算機"
+            desc="即時匯率對 16 國貨幣，每小時更新，反向換算物價。"
+          />
         </div>
       </section>
     </div>
+  );
+}
+
+function ToolCard({
+  href,
+  emoji,
+  title,
+  desc,
+}: {
+  href: string;
+  emoji: string;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="block p-6 border border-slate-200 rounded-lg hover:border-blue-500 hover:shadow-sm transition"
+    >
+      <div className="text-3xl mb-2">{emoji}</div>
+      <h3 className="text-lg font-semibold mb-1">{title}</h3>
+      <p className="text-sm text-slate-600">{desc}</p>
+    </Link>
   );
 }

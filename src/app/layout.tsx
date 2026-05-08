@@ -61,12 +61,18 @@ export default function RootLayout({
             <Link href="/" className="text-xl font-bold tracking-tight">
               ✈️ Go Abroad
             </Link>
-            <nav className="flex gap-6 text-sm">
+            <nav className="flex gap-4 sm:gap-6 text-sm">
               <Link href="/visa" className="hover:text-blue-600">
-                簽證查詢
+                簽證
               </Link>
               <Link href="/tools/luggage" className="hover:text-blue-600">
-                行李清單
+                行李
+              </Link>
+              <Link href="/tools/split-bill" className="hover:text-blue-600">
+                分帳
+              </Link>
+              <Link href="/tools/currency" className="hover:text-blue-600">
+                換匯
               </Link>
             </nav>
           </div>
