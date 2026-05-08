@@ -129,6 +129,19 @@ export default function EsimClient() {
                   {p.name} →
                 </a>
               </div>
+              {p.referralCode && (
+                <div className="mb-3 p-3 bg-emerald-50 border border-emerald-200 rounded text-xs">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-medium text-emerald-900">🎁 推薦碼</span>
+                    <code className="px-2 py-0.5 bg-white border border-emerald-300 rounded font-mono font-bold tracking-wide">
+                      {p.referralCode}
+                    </code>
+                  </div>
+                  {p.referralNote && (
+                    <p className="text-emerald-800">{p.referralNote}</p>
+                  )}
+                </div>
+              )}
               <ul className="text-sm text-slate-600 space-y-1 mb-3">
                 {p.features.map((f, i) => (
                   <li key={i}>• {f}</li>

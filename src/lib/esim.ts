@@ -6,6 +6,8 @@ export type EsimProvider = {
   features: string[];
   pros: string[];
   cons: string[];
+  referralCode?: string;
+  referralNote?: string;
 };
 
 export type EsimPlan = {
@@ -24,10 +26,12 @@ export const PROVIDERS: EsimProvider[] = [
     id: "airalo",
     name: "Airalo",
     logo: "📡",
-    url: "https://www.airalo.com/",
+    url: "https://www.airalo.com/?referral=EELCAK4639",
     features: ["全球 200+ 國", "App 直接購買啟用", "支援 24 小時客服"],
-    pros: ["國家覆蓋最廣", "App 介面直觀", "新用戶有 NEWTOAIRALO15 折扣"],
+    pros: ["國家覆蓋最廣", "App 介面直觀", "輸入推薦碼 EELCAK4639 首購折抵 US$3"],
     cons: ["部分國家速度只到 4G", "用完不可加購要重買"],
+    referralCode: "EELCAK4639",
+    referralNote: "結帳時輸入此推薦碼，首次購買折抵 US$3（約 NT$100）",
   },
   {
     id: "holafly",
