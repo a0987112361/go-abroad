@@ -8,6 +8,7 @@ import {
   getVisaCountry,
   type VisaCountry,
 } from "@/lib/visa";
+import { AFFILIATE_LINK_REL, klookCountry } from "@/lib/affiliates";
 
 type Params = { country: string };
 
@@ -146,6 +147,35 @@ export default async function VisaCountryPage({
           確認最新規定。
         </p>
       </aside>
+
+      <section className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <a
+          href={klookCountry(data.country, `visa-${data.slug}-tickets`)}
+          target="_blank"
+          rel={AFFILIATE_LINK_REL}
+          className="block p-4 bg-white border border-slate-200 rounded-lg hover:border-blue-500 hover:shadow-sm transition"
+        >
+          <div className="text-2xl mb-1">🎫</div>
+          <div className="font-medium text-sm">{data.country}行程・票券</div>
+          <div className="text-xs text-slate-500 mt-1">Klook 找熱門景點</div>
+        </a>
+        <Link
+          href="/tools/esim"
+          className="block p-4 bg-white border border-slate-200 rounded-lg hover:border-blue-500 hover:shadow-sm transition"
+        >
+          <div className="text-2xl mb-1">📡</div>
+          <div className="font-medium text-sm">eSIM 比較</div>
+          <div className="text-xs text-slate-500 mt-1">出國上網方案</div>
+        </Link>
+        <Link
+          href="/tools/insurance"
+          className="block p-4 bg-white border border-slate-200 rounded-lg hover:border-blue-500 hover:shadow-sm transition"
+        >
+          <div className="text-2xl mb-1">🛡️</div>
+          <div className="font-medium text-sm">旅遊保險比較</div>
+          <div className="text-xs text-slate-500 mt-1">7 家旅平險試算</div>
+        </Link>
+      </section>
     </article>
   );
 }

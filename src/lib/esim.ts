@@ -69,7 +69,7 @@ export const PROVIDERS: EsimProvider[] = [
     id: "klook-esim",
     name: "Klook eSIM",
     logo: "🎫",
-    url: "https://www.klook.com/zh-TW/activity-search/?keyword=eSIM",
+    url: "https://www.klook.com/zh-TW/activity-search/?keyword=eSIM&aid=120721",
     features: ["透過 Klook 平台", "中文客服", "搭配行程一起買"],
     pros: ["中文購買流程", "搭機票/住宿有時優惠"],
     cons: ["價格未必最低", "供應商不固定"],
